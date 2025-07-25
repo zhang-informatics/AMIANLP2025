@@ -1,6 +1,6 @@
 const guests = {
   guest1: {
-    name: 'Rui Zhang, PhD, FAMIA, FACMI',
+    name: 'Rui Zhang, PhD, FACMI, FAMIA, FIAHSI',
     occupation: 'Chair',
     description: 'Professor and Founding Chief, Division of Computational Health Sciences, Medical School, University of Minnesota, Minneapolis, MN',
     picture: 'src/rui.png',
