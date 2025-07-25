@@ -1,47 +1,64 @@
 const guests = {
   guest1: {
-    name: 'NAME',
+    name: 'Rui Zhang, PhD, FAMIA, FACMI',
     occupation: 'Chair',
-    description: 'Description.',
-    picture: 'src/adachi.png',
+    description: 'Professor and Founding Chief, Division of Computational Health Sciences, Medical School, University of Minnesota, Minneapolis, MN',
+    picture: 'src/rui.png',
+    homepage: 'https://amia.org/membership/rui-zhang-phd-famia-facmi',
   },
   guest2: {
-    name: 'Yanshan Wang, PhD, FAMIA',
-    occupation: 'Chair Elect',
-    description: 'Description.',
-    picture: 'src/naoshi.png',
+    name: 'Sunyang Fu, PhD, MHI',
+    occupation: 'Vice Chair',
+    description: 'Associate Professor, University of Texas Health Science Center at Houston, TX',
+    picture: 'src/sunyang2.jpg',
+    homepage: 'https://amia.org/membership/sunyang-fu-phd-mhi',
   },
   guest3: {
-    name: 'NAME',
-    occupation: 'Position',
-    description: 'Description.',
-    picture: 'src/adachi.png',
+    name: 'Yanshan Wang, PhD',
+    occupation: 'Past Chair',
+    description: 'Assistant Professor and Vice-Chair of Health Informatics Research, University of Pittsburgh, PA',
+    picture: 'src/naoshi.png',
+    homepage: 'https://amia.org/membership/yanshan-wang-phd',
   },
   guest4: {
-    name: 'NAME',
-    occupation: 'Position',
-    description: 'Description.',
-    picture: 'src/adachi.png',
+    name: 'Sujani Kakumanu, MD',
+    occupation: 'Member-at-Large',
+    description: 'Clinical Associate Professor, Allergy & Immunology, William S. Middleton Veterans Hospital, University of Wisconsin, Madison, WI',
+    picture: 'src/sujani.png',
+    homepage: 'https://amia.org/membership/sujani-kakumanu-md',
   },
   guest5: {
-    name: 'NAME',
-    occupation: 'Position',
-    description: 'Description.',
-    picture: 'src/adachi.png',
+    name: 'Jiyeong Kim, PhD',
+    occupation: 'Member-at-Large',
+    description: 'Post doctoral scholar, Stanford University, CA',
+    picture: 'src/jiyeong.png',
+    homepage: 'https://profiles.stanford.edu/jiyeong-kim',
   },
   guest6: {
-    name: 'NAME',
-    occupation: 'Position',
-    description: 'Description.',
-    picture: 'src/adachi.png',
+    name: 'Xinsong Du, PhD',
+    occupation: 'Secretary',
+    description: 'Postdoctoral Research Fellow, Harvard Medical School, Boston, MA',
+    picture: 'src/xinsong.png',
+    homepage: 'https://amia.org/membership/xinsong-du-phd',
   },
 };
 
 function createGuest(guest) {
   const guestContainer = document.getElementById('guest-container');
   const guestElement = document.createElement('li');
+  
+  // Common image styles for consistent sizing
+  const imageStyles = "width: 200px; height: 200px; object-fit: cover; cursor: pointer;";
+  
+  // Create image with optional link
+  const imageHTML = guest.homepage ? 
+    `<a href="${guest.homepage}" target="_blank" rel="noopener noreferrer">
+       <img src="${guest.picture}" alt="Guest picture" style="${imageStyles}">
+     </a>` : 
+    `<img src="${guest.picture}" alt="Guest picture" style="${imageStyles}">`;
+  
   guestElement.innerHTML = `<div class="guest-image">
-                                    <img src="${guest.picture}" alt="Guest picture">
+                                    ${imageHTML}
                                 </div>
                                 <div class="guest-info">
                                     <h3>${guest.name}</h3>

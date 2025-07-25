@@ -110,11 +110,6 @@
             </div>
             <ul class="desktop-menu">
                 <li>
-                    <a href="about.html">
-                        <h4>About NLP WG</h4>
-                    </a>
-                </li>
-                <li>
                     <a href="#intro-id">
                         <h4>Introduction</h4>
                     </a>
@@ -131,6 +126,21 @@
                     </a>
                 </li>
                 <li>
+                    <a href="#submissions-id">
+                        <h4>Submission</h4>
+                    </a>
+                </li>
+                <li>
+                    <a href="#sponsors-id">
+                        <h4>Sponsors</h4>
+                    </a>
+                </li>
+                <li>
+                    <a href="#past-events-id">
+                        <h4>Past Events</h4>
+                    </a>
+                </li>
+                <li>
                     <a href="#contact-id">
                         <h4 class="menu-last-item">Contact Us</h4>
                     </a>
@@ -141,12 +151,6 @@
                     <a id="onclick-close">
                         <img id="close-button" src="src/close-icon.png" alt="Close button">
                     </a>
-                </li>
-                <li>
-                    <a href="about.html" id="onclick-about">
-                        <h4>About</h4>
-                    </a>
-                    <hr>
                 </li>
                 <li>
                     <a href="#intro-id" id="onclick-events">
@@ -167,8 +171,26 @@
                     <hr>
                 </li>
                 <li>
+                    <a href="#submissions-id" id="onclick-submission">
+                        <h4>Submission</h4>
+                    </a>
+                    <hr>
+                </li>
+                <li>
                     <a href="#sponsors-id" id="onclick-sponsors">
-                        <h4 class="menu-last-item">Submission and Review</h4>
+                        <h4>Sponsors</h4>
+                    </a>
+                    <hr>
+                </li>
+                <li>
+                    <a href="#past-events-id" id="onclick-past-events">
+                        <h4>Past Events</h4>
+                    </a>
+                    <hr>
+                </li>
+                <li>
+                    <a href="#contact-id" id="onclick-contact">
+                        <h4 class="menu-last-item">Contact Us</h4>
                     </a>
                     <hr>
                 </li>
@@ -361,16 +383,257 @@ technologies, especially in health systems (and adjunct industries).</p>
         }
         
         /* Organization section styling */
-        .guests2 ul[data-columns="2"] {
-            column-count: 2;
-            column-gap: 40px; /* Increase space between columns */
+        .guests2 ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
             list-style: none;
             padding: 0;
         }
         
-        .guests2 ul[data-columns="2"] li {
-            break-inside: avoid;
-            margin-bottom: 10px;
+        .guests2 li {
+            display: grid;
+            grid-template-columns: 130px auto;
+            gap: 5px;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            width: 100%;
+            max-width: 500px;
+            min-height: 220px;
+            word-break: break-word;
+        }
+        
+        .guests2 li::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(235,161,52,0.05) 0%, rgba(244,201,101,0.05) 100%);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+        
+        .guests2 li:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .guests2 li:hover::before {
+            opacity: 1;
+        }
+        
+        .guests2 li > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .guests2 button {
+            padding: 20px;
+            margin: 30px 0 30px 0;
+            width: 100%;
+            background-color: #fafafa;
+            color: #272a31;
+            border: 1px solid #d3d3d3;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Lato', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .guests2 button:hover {
+            background-color: #eba134;
+            color: white;
+            border-color: #eba134;
+        }
+        
+        .guests2 button > img {
+            width: 10px;
+            margin-left: 10px;
+        }
+        
+        .guest-image {
+            background-size: 40% 40%;
+            background-repeat: no-repeat;
+            background-position-x: 0;
+            background-position-y: 0;
+            min-height: 160px;
+            width: 130px;
+            flex: 0 0 130px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .guest-image img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+        
+        .guests2 li:hover .guest-image img {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(235,161,52,0.3);
+        }
+        
+        .guest-info {
+            padding: 10px 0 10px 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            min-height: 160px;
+            min-width: 220px;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .guest-info hr {
+            border: none;
+            border-top: 1px solid #d3d3d3;
+            width: 30px;
+            margin: 8px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .guests2 li:hover .guest-info hr {
+            border-top-color: #eba134;
+            width: 50px;
+        }
+        
+        .guest-info h3 {
+            font-weight: 900;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            line-height: 1.2;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .guests2 li:hover .guest-info h3 {
+            color: #eba134;
+            transform: translateX(5px);
+        }
+        
+        .guest-info h4 {
+            font-style: italic;
+            color: #ec5242;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .guests2 li:hover .guest-info h4 {
+            transform: translateX(3px);
+        }
+        
+        .guest-info p {
+            font-size: 11px;
+            line-height: 1.4;
+            color: #666;
+            transition: all 0.3s ease;
+            margin-top: auto;
+            flex-grow: 1;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .guests2 li:hover .guest-info p {
+            transform: translateX(2px);
+        }
+        
+        /* Desktop version - 3 columns layout */
+        @media only screen and (min-width: 768px) {
+            .guests2 ul {
+                display: grid;
+                width: 95%;
+                max-width: 1400px;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 25px;
+                justify-content: center;
+                margin: 0 auto;
+            }
+            
+            .guests2 li {
+                min-width: 400px;
+                max-width: 480px;
+                min-height: 240px;
+                grid-template-columns: 140px auto;
+                gap: 5px;
+                word-break: break-word;
+            }            .guests2 button {
+                width: 25%;
+                margin: 30px auto;
+                display: block;
+            }
+            
+            .guest-image {
+                min-width: 140px;
+                width: 140px;
+                flex: 0 0 140px;
+                min-height: 180px;
+            }
+            
+            .guest-image img {
+                max-width: 100%;
+                height: auto;
+                object-fit: contain;
+            }
+            
+            .guest-info {
+                min-height: 180px;
+                padding: 15px 0 15px 20px;
+                min-width: 280px;
+                word-break: break-word;
+                overflow-wrap: break-word;
+            }
+            
+            .guest-info h3 {
+                font-size: 15px;
+                margin-bottom: 8px;
+            }
+            
+            .guest-info h4 {
+                font-size: 13px;
+                margin-bottom: 10px;
+            }
+            
+            .guest-info p {
+                font-size: 12px;
+                line-height: 1.5;
+            }
+            
+            /* Enhanced hover effects for desktop */
+            .guests2 li:hover {
+                transform: translateY(-8px) scale(1.03);
+                box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            }
+            
+            .guests2 li:hover .guest-info h3 {
+                transform: translateX(8px);
+            }
+            
+            .guests2 li:hover .guest-info h4 {
+                transform: translateX(6px);
+            }
+            
+            .guests2 li:hover .guest-info p {
+                transform: translateX(4px);
+            }
         }
 
         /* Unified Section Title Styling */
@@ -853,46 +1116,27 @@ technologies, especially in health systems (and adjunct industries).</p>
     <section class="guests2" id="committee-id">
         <h2>Organization</h2>
         <hr>
-        <ul data-columns="2">
-            <li>Rui Zhang (chair), PhD, University of Minnesota, Minneapolis, MN </li><br>
-            <li>Sunyang Fu (Vice Chair), PhD, University of Texas Health Science Center at Houston </li><br>
-            <li>Yanshan Wang (Past Chair), PhD, University of Pittsburgh, Pittsburgh, PA </li><br>
-            <li>Sujani Kakumanu (Member-at-Large), MD, William S. Middleton Veterans Hospital</li><br>
-            <li>Jiyeong Kim (Member-at-Large), PhD, Stanford University, Stanford, CA</li><br>
-            <li>Xinsong Du (Secretary), PhD, Harvard Medical School, Boston, MA</li><br>
-
-<!--             
-            <li>Joseph M. Plasek (Secretary), PhD, Mass General Brigham, Boston, MA </li><br>
-            <li>Satya Sahoo (vice chair), PhD, Case Western Reserve University, Cleveland, OH </li><br>
-            <li>Steve Bedrick, PhD, Oregon Health & Science University, Portland, OR</li><br>
-            <li>Kirk Roberts, PhD, University of Texas Health Science Center at Houston, Houston, TX</li><br>
-            <li>Özlem Uzuner, PhD, FACMI, George Mason University, Fairfax, Virginia </li><br>
-            <li>Meliha Yetişgen, PhD, University of Washington, Seattle, WA  </li><br>
-            <li>Hongfang Liu, PhD, University of Texas Health Science Center at Houston, TX </li><br>
-            <li>Stephane Meystre, MD, PhD, University of Applied Sciences and Arts of Southern Switzerland (SUPSI), Lugano, Switzerland </li><br>
-            <li>Chunhua Weng, PhD, Columbia University, New York, NY </li><br>
-            <li>Hua Xu, PhD, Yale University, New Haven, CT </li><br>
-            <li>Mesoud Rouhizadeh, PhD, University of Florida, Gainesville, Florida </li><br>
-            <li>Yifan Peng, PhD, Weill Cornel Medicine, New York City, New York </li><br>
-            <li>Abeed Sarker, PhD, Emory University, Atlanta, Georgia </li><br>
-            <li>Ramakanth Kavuluru, University of Kentucky, Lexington, Kentucky</li><br> -->
-        </ul>
+        <ul id="guest-container"></ul>
+        <button type="button" id="more-button">
+            MORE
+            <img src="src/down-arrow.png" alt="Arrow">
+        </button>
     </section>
 
     <section class="events1" id="submissions-id">
-        <h2>Submission and Review</h2>
+        <h2>Submission</h2>
         <hr>
-        <h3>Important Dates</h3>
+        <h3 style="text-align: left;">Important Dates</h3>
         <p>
             <ul>
-                <li>Submission Deadline: August 28, 2025<br></li>
-                <li>Notification of Acceptance: September 12, 2025<br></li>
-                <li>Workshop: November 16, 2025</li>
+                <li>Submission Deadline: <span style="color: red; font-weight: bold;">August 28, 2025</span><br></li>
+                <li>Notification of Acceptance: <span style="color: red; font-weight: bold;">September 12, 2025</span><br></li>
+                <li>Workshop: <span style="color: red; font-weight: bold;">November 16, 2025</span></li>
             </ul>
         </p> <br> <br>
 
-        <h3>Graduate student consortium</h3>
-        <p>Graduate students are invited to submit applications for a podium presentation of their 
+        <h3 style="text-align: left;">Graduate Student Consortium</h3>
+        <p style="margin-left: 40px; padding-left: 20px;">Graduate students are invited to submit applications for a podium presentation of their 
             graduate research work (in the biomedical and clinical NLP fields). The submission is 
             suggested to include the following sections:<br><br>
             • Aims and Objectives - State the main objective(s) of your project.<br>
@@ -906,8 +1150,8 @@ technologies, especially in health systems (and adjunct industries).</p>
             • References – Any relevant citation.
         </p> <br> <br>
 
-        <h3>State-of-the-art biomedical and clinical NLP</h3>
-        <p>Researchers are encouraged to submit the most recent research studies 
+        <h3 style="text-align: left;">State-of-the-Art Biomedical and Clinical NLP</h3>
+        <p style="margin-left: 40px; padding-left: 20px;">Researchers are encouraged to submit the most recent research studies 
             (published, in press, or under development projects), tools, resources, events, 
             and community shared tasks. The following sections are suggested:<br><br>
             • Methods/Tools/Resources/Events/Shared Tasks Description<br>
@@ -918,8 +1162,8 @@ technologies, especially in health systems (and adjunct industries).</p>
             • References
         </p> <br> <br> 
         
-        <h3>Submission Guidelines</h3>
-        <p>All submissions have a page limit of 2 pages using <a href="https://brand.amia.org/m/95c9b4f4632c1fe/original/amia-symposium-template-paper-poster.docx">AMIA Template</a></p>
+        <h3 style="text-align: left;">Submission Guidelines</h3>
+        <p style="margin-left: 40px; padding-left: 20px;">All submissions have a page limit of <span style="color: red; font-weight: bold;">2 pages</span> using <span style="color: red; font-weight: bold;"><a href="https://brand.amia.org/m/95c9b4f4632c1fe/original/amia-symposium-template-paper-poster.docx" style="color: red;">AMIA Template</a></span></p>
         
         <div style="text-align: center; margin: 30px 0;">
             <a href="https://easychair.org/conferences/?conf=amia2025nlpwg" 
@@ -942,7 +1186,50 @@ technologies, especially in health systems (and adjunct industries).</p>
     <section class="guests" id="sponsors-id">
         <h2>Sponsors</h2>
         <hr>
-        <p>To be updated</p>
+        <p>TBD</p>
+    </section>
+
+    <section class="guests" id="past-events-id">
+        <h2>Past Events</h2>
+        <hr>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px;">
+            <a href="https://ohnlp.github.io/AMIANLPWG2018/NLP-WG.html" 
+               style="display: block; text-decoration: none; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); 
+                      padding: 30px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); 
+                      transition: all 0.3s ease; min-width: 200px; text-align: center; border: 2px solid transparent;"
+               onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 35px rgba(235,161,52,0.2)'; this.style.borderColor='#eba134'"
+               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 25px rgba(0,0,0,0.1)'; this.style.borderColor='transparent'">
+                <h3 style="color: #eba134; font-size: 2em; margin-bottom: 10px; font-weight: 700;">2021</h3>
+                <p style="color: #2c3e50; font-size: 1.1em; margin: 0; font-weight: 500;"></p>
+            </a>
+            <a href="https://pittnail.github.io/AMIANLP2022/" 
+               style="display: block; text-decoration: none; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); 
+                      padding: 30px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); 
+                      transition: all 0.3s ease; min-width: 200px; text-align: center; border: 2px solid transparent;"
+               onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 35px rgba(235,161,52,0.2)'; this.style.borderColor='#eba134'"
+               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 25px rgba(0,0,0,0.1)'; this.style.borderColor='transparent'">
+                <h3 style="color: #eba134; font-size: 2em; margin-bottom: 10px; font-weight: 700;">2022</h3>
+                <p style="color: #2c3e50; font-size: 1.1em; margin: 0; font-weight: 500;"></p>
+            </a>
+            <a href="https://pittnail.github.io/AMIANLP2023/" 
+               style="display: block; text-decoration: none; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); 
+                      padding: 30px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); 
+                      transition: all 0.3s ease; min-width: 200px; text-align: center; border: 2px solid transparent;"
+               onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 35px rgba(235,161,52,0.2)'; this.style.borderColor='#eba134'"
+               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 25px rgba(0,0,0,0.1)'; this.style.borderColor='transparent'">
+                <h3 style="color: #eba134; font-size: 2em; margin-bottom: 10px; font-weight: 700;">2023</h3>
+                <p style="color: #2c3e50; font-size: 1.1em; margin: 0; font-weight: 500;"></p>
+            </a>
+            <a href="https://pittnail.github.io/AMIANLP2024/" 
+               style="display: block; text-decoration: none; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); 
+                      padding: 30px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); 
+                      transition: all 0.3s ease; min-width: 200px; text-align: center; border: 2px solid transparent;"
+               onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 35px rgba(235,161,52,0.2)'; this.style.borderColor='#eba134'"
+               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 25px rgba(0,0,0,0.1)'; this.style.borderColor='transparent'">
+                <h3 style="color: #eba134; font-size: 2em; margin-bottom: 10px; font-weight: 700;">2024</h3>
+                <p style="color: #2c3e50; font-size: 1.1em; margin: 0; font-weight: 500;"></p>
+            </a>
+        </div>
     </section>
 
     <section class="guests" id="contact-id">
@@ -950,11 +1237,11 @@ technologies, especially in health systems (and adjunct industries).</p>
         <h2>Contact Us</h2>
         <hr>
         <p>Chair: Rui Zhang, PhD:<a href="mailto:zhan1386@umn.edu"> zhan1386@umn.edu</a></p>
-        <p>Vice Chair: Sunyang Fu, PhD:<a href="mailto:Sunyang.Fu@uth.tmc.edu"> Sunyang.Fu@uth.tmc.edu</a></p>
+        <!-- <p>Vice Chair: Sunyang Fu, PhD:<a href="mailto:Sunyang.Fu@uth.tmc.edu"> Sunyang.Fu@uth.tmc.edu</a></p>
         <p>Past Chair: Yanshan Wang, PhD, FAMIA:<a href="mailto:yanshan.wang@pitt.edu"> yanshan.wang@pitt.edu</a></p>
         <p>Member-at-Large: Sujani Kakumanu, MD:<a href="mailto:kakumanu@wisc.edu"> kakumanu@wisc.edu</a></p>
         <p>Member-at-Large: Jiyeong Kim, PhD:<a href="mailto:jykim3@stanford.edu"> jykim3@stanford.edu</a></p>
-        <p>Secretary: Xinsong Du, PhD:<a href="mailto:xinsong_du@affiliate.hms.harvard.edu"> xinsong_du@affiliate.hms.harvard.edu</a></p>
+        <p>Secretary: Xinsong Du, PhD:<a href="mailto:xinsong_du@affiliate.hms.harvard.edu"> xinsong_du@affiliate.hms.harvard.edu</a></p> -->
     </section>
     <footer class="copyright">
         <img src="src/logo.png" alt="Website logo">
