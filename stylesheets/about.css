@@ -11,7 +11,8 @@
 }
 
 body {
-  width: fit-content;
+  width: 100%;
+  min-width: 320px;
   -webkit-user-select: none;
   -webkit-touch-callout: none;
   -moz-user-select: none;
@@ -211,15 +212,8 @@ a {
     color: #ec5242;
   }
 
-  .menu-last-item {
-    border: 3px solid #ec5242;
-    padding: 10px;
-    margin: 10px;
-    color: #ec5242;
-  }
-
   .header {
-    background-image: url(../src/about-bg.png);
+    background-image: url(../src/atlanta4.png);
     background-color: #f7f7f7;
   }
 
@@ -339,7 +333,7 @@ a {
 }
 
 .past-events div > a:first-of-type {
-  background-image: url("../src/background.png");
+  background-image: url("../src/past-event-1.png");
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 170px;
