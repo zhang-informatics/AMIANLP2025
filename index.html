@@ -9,6 +9,29 @@
     <link href="//fonts.cdnfonts.com/css/cocogoose" rel="stylesheet">
     <link href="//fonts.cdnfonts.com/css/lato" rel="stylesheet">
     <style>
+        /* CSS Reset for navigation positioning */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body, header, nav {
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Hide or minimize above-header to eliminate top spacing */
+        .above-header {
+            display: none;
+        }
+        
+        /* Ensure header-tab sticks to top */
+        .header-tab {
+            margin: 0;
+            padding: 0;
+        }
+        
         table {
             border-collapse: collapse;
             width: 100%;
@@ -153,12 +176,106 @@
         </nav>
     </header>
     <section class="header-section" id="header-id">
-        <div class="header">
-            <h2 id="hello">AMIA 2025</h2>
-            <h1>NLP Working Group Pre-Symposium</h1>
-            <h2 id="date">Nov 16, 2025</h2>
-            <h2 id="location">Atlanta, GA</h2>
+        <div class="header" style="
+            text-align: center;
+            padding: 80px 20px 60px;
+            margin-top: 0px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        ">
+            <!-- <h2 id="hello"></h2> -->
+            <br>
+            <h1 style="
+                font-size: clamp(2.5rem, 6vw, 4rem);
+                font-weight: 700;
+                background: linear-gradient(45deg, #eba134, #f4c965, #eba134);
+                background-size: 200% 200%;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                margin-bottom: 30px;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                animation: slideInDown 1.2s ease-out, gradientShift 3s ease-in-out infinite;
+            ">AMIA 2025 NLP Working Group Pre-Symposium</h1>
+            <h2 id="date" style="
+                font-size: clamp(1.5rem, 4vw, 2.5rem);
+                color: #f4c965;
+                font-weight: 600;
+                margin: 20px 0;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+                animation: fadeInUp 1.5s ease-out 0.3s both;
+            ">Nov 16, 2025</h2>
+            <h2 id="location" style="
+                font-size: clamp(1.3rem, 3.5vw, 2rem);
+                color: #ffffff;
+                font-weight: 500;
+                margin: 15px 0;
+                text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+                animation: fadeInUp 1.8s ease-out 0.6s both;
+            ">Atlanta, GA</h2>
         </div>
+        
+        <style>
+            @keyframes slideInDown {
+                0% {
+                    transform: translateY(-50px);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes fadeInUp {
+                0% {
+                    transform: translateY(30px);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes gradientShift {
+                0%, 100% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+            }
+            
+            @keyframes pulse {
+                0%, 100% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.05);
+                }
+            }
+            
+            /* Mobile responsive adjustments */
+            @media (max-width: 768px) {
+                .header-section .header {
+                    padding: 60px 15px 40px !important;
+                    margin-top: 20px !important;
+                    border-radius: 10px !important;
+                }
+                
+                .header-section h1 {
+                    letter-spacing: 1px !important;
+                    margin-bottom: 25px !important;
+                }
+                
+                .header-section h2 {
+                    margin: 15px 0 !important;
+                }
+            }
+        </style>
     </section>
 
     <section style="background-color: #f8f9fa; padding: 30px 20px; text-align: center; margin: 0;">
@@ -306,6 +423,36 @@ technologies, especially in health systems (and adjunct industries).</p>
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Submission and Review Section Text Styling */
+        .events1 h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: white;
+            margin: 15px 0 10px 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        }
+
+        .events1 p {
+            font-size: 20px;
+            line-height: 1.7;
+            color: #f0f0f0;
+            margin-bottom: 15px;
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;
+        }
+
+        .events1 ul {
+            font-size: 20px;
+            line-height: 1.7;
+            color: #f0f0f0;
+            margin: 0 0 20px 20px;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .events1 ul li {
+            margin-bottom: 8px;
         }
 
         /* Program Section Special Styling */
@@ -514,6 +661,16 @@ technologies, especially in health systems (and adjunct industries).</p>
                 background-color: rgba(0, 0, 0, 0.7);
                 border-radius: 8px;
                 margin: 0 10px;
+            }
+            
+            /* Responsive Submission and Review Text */
+            .events1 h3 {
+                font-size: 1.2em;
+            }
+            
+            .events1 p, .events1 ul {
+                font-size: 18px;
+                line-height: 1.6;
             }
             
             /* Responsive Program Table */
