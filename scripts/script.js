@@ -43,30 +43,114 @@ const guests = {
   },
 };
 
+// Leadership members (same as guests for now)
+const leadership = {
+  leader1: {
+    name: 'Rui Zhang, PhD, FACMI, FAMIA, FIAHSI',
+    occupation: 'Chair',
+    description: 'Professor and Founding Chief, Division of Computational Health Sciences, Medical School, University of Minnesota, Minneapolis, MN',
+    picture: 'src/rui.png',
+    homepage: 'https://amia.org/membership/rui-zhang-phd-famia-facmi',
+  },
+  leader2: {
+    name: 'Sunyang Fu, PhD, MHI',
+    occupation: 'Vice Chair',
+    description: 'Associate Professor, University of Texas Health Science Center at Houston, TX',
+    picture: 'src/sunyang2.jpg',
+    homepage: 'https://amia.org/membership/sunyang-fu-phd-mhi',
+  },
+  leader3: {
+    name: 'Yanshan Wang, PhD',
+    occupation: 'Past Chair',
+    description: 'Assistant Professor and Vice-Chair of Health Informatics Research, University of Pittsburgh, PA',
+    picture: 'src/naoshi.png',
+    homepage: 'https://amia.org/membership/yanshan-wang-phd',
+  },
+  leader4: {
+    name: 'Sujani Kakumanu, MD',
+    occupation: 'Member-at-Large',
+    description: 'Clinical Associate Professor, Allergy & Immunology, William S. Middleton Veterans Hospital, University of Wisconsin, Madison, WI',
+    picture: 'src/sujani.png',
+    homepage: 'https://amia.org/membership/sujani-kakumanu-md',
+  },
+  leader5: {
+    name: 'Jiyeong Kim, PhD',
+    occupation: 'Member-at-Large',
+    description: 'Post doctoral scholar, Stanford University, CA',
+    picture: 'src/jiyeong.png',
+    homepage: 'https://profiles.stanford.edu/jiyeong-kim',
+  },
+  leader6: {
+    name: 'Xinsong Du, PhD',
+    occupation: 'Secretary',
+    description: 'Postdoctoral Research Fellow, Harvard Medical School, Boston, MA',
+    picture: 'src/xinsong.png',
+    homepage: 'https://amia.org/membership/xinsong-du-phd',
+  },
+};
+
 function createGuest(guest) {
-  const guestContainer = document.getElementById('guest-container');
-  const guestElement = document.createElement('li');
+  // Organization section now uses simple static HTML list
+  // This function is no longer used for Organization section
+  return;
+}
+
+function createLeader(leader) {
+  const leaderContainer = document.getElementById('leadership-container');
+  const leaderElement = document.createElement('li');
   
   // Common image styles for consistent sizing
   const imageStyles = "width: 200px; height: 200px; object-fit: cover; cursor: pointer;";
   
   // Create image with optional link
-  const imageHTML = guest.homepage ? 
-    `<a href="${guest.homepage}" target="_blank" rel="noopener noreferrer">
-       <img src="${guest.picture}" alt="Guest picture" style="${imageStyles}">
+  const imageHTML = leader.homepage ? 
+    `<a href="${leader.homepage}" target="_blank" rel="noopener noreferrer">
+       <img src="${leader.picture}" alt="Leader picture" style="${imageStyles}">
      </a>` : 
-    `<img src="${guest.picture}" alt="Guest picture" style="${imageStyles}">`;
+    `<img src="${leader.picture}" alt="Leader picture" style="${imageStyles}">`;
   
-  guestElement.innerHTML = `<div class="guest-image">
+  leaderElement.innerHTML = `<div class="guest-image">
                                     ${imageHTML}
                                 </div>
                                 <div class="guest-info">
-                                    <h3>${guest.name}</h3>
-                                    <h4>${guest.occupation}</h4>
+                                    <h3>${leader.name}</h3>
+                                    <h4>${leader.occupation}</h4>
                                     <hr>
-                                    <p>${guest.description}</p>
+                                    <p>${leader.description}</p>
                                 </div>`;
-  guestContainer.appendChild(guestElement);
+  leaderContainer.appendChild(leaderElement);
+}
+
+function createGuestSection(guestsList, counter) {
+  // Organization section now uses simple static HTML list
+  // This function is no longer used for Organization section
+  return;
+}
+
+function createLeader(leader) {
+  const leaderContainer = document.getElementById('leadership-container');
+  const leaderElement = document.createElement('li');
+  
+  // Common image styles for consistent sizing
+  const imageStyles = "width: 200px; height: 200px; object-fit: cover; cursor: pointer;";
+  
+  // Create image with optional link
+  const imageHTML = leader.homepage ? 
+    `<a href="${leader.homepage}" target="_blank" rel="noopener noreferrer">
+       <img src="${leader.picture}" alt="Leader picture" style="${imageStyles}">
+     </a>` : 
+    `<img src="${leader.picture}" alt="Leader picture" style="${imageStyles}">`;
+  
+  leaderElement.innerHTML = `<div class="guest-image">
+                                    ${imageHTML}
+                                </div>
+                                <div class="guest-info">
+                                    <h3>${leader.name}</h3>
+                                    <h4>${leader.occupation}</h4>
+                                    <hr>
+                                    <p>${leader.description}</p>
+                                </div>`;
+  leaderContainer.appendChild(leaderElement);
 }
 
 function createGuestSection(guestsList, counter) {
@@ -77,18 +161,26 @@ function createGuestSection(guestsList, counter) {
   }
 }
 
-let clicks = true;
-const button = document.getElementById('more-button');
+function createLeadershipSection(leadersList, counter) {
+  const leaderContainer = document.getElementById('leadership-container');
+  leaderContainer.innerHTML = '';
+  for (let i = 0; i < counter; i += 1) {
+    createLeader(leadersList[i]);
+  }
+}
+
+let leadershipClicks = true;
+const leadershipButton = document.getElementById('leadership-more-button');
 const mediaQuery = window.matchMedia('(min-width: 768px)');
-const list = Object.values(guests);
+const leadershipList = Object.values(leadership);
 
 function mediaQueryCheck() {
   if (mediaQuery.matches) {
-    createGuestSection(list, list.length);
-    button.style.display = 'none';
+    createLeadershipSection(leadershipList, leadershipList.length);
+    if (leadershipButton) leadershipButton.style.display = 'none';
   } else {
-    createGuestSection(list, 2);
-    button.style.display = 'block';
+    createLeadershipSection(leadershipList, 2);
+    if (leadershipButton) leadershipButton.style.display = 'block';
   }
 }
 
@@ -113,20 +205,23 @@ document.addEventListener('DOMContentLoaded', () => {
   addSmoothScrolling();
 });
 
-button.addEventListener('click', () => {
-  if (clicks) {
-    createGuestSection(list, list.length);
-    clicks = false;
-    button.innerHTML = `LESS
-                            <img src="src/up-arrow.png" alt="Arrow">`;
-  } else {
-    createGuestSection(list, 2);
-    clicks = true;
-    document.getElementById('guests-id').scrollIntoView({ behavior: 'smooth' });
-    button.innerHTML = `MORE
-                            <img src="src/down-arrow.png" alt="Arrow">`;
-  }
-});
+// Leadership button event listener
+if (leadershipButton) {
+  leadershipButton.addEventListener('click', () => {
+    if (leadershipClicks) {
+      createLeadershipSection(leadershipList, leadershipList.length);
+      leadershipClicks = false;
+      leadershipButton.innerHTML = `LESS
+                              <img src="src/up-arrow.png" alt="Arrow">`;
+    } else {
+      createLeadershipSection(leadershipList, 2);
+      leadershipClicks = true;
+      document.getElementById('leadership-id').scrollIntoView({ behavior: 'smooth' });
+      leadershipButton.innerHTML = `MORE
+                              <img src="src/down-arrow.png" alt="Arrow">`;
+    }
+  });
+}
 
 function openCloseMenu() {
   const x = document.querySelector('.mobile-menu');
@@ -146,5 +241,5 @@ function addevent(id) {
   });
 }
 
-const ids = ['onclick-open', 'onclick-close', 'onclick-events', 'onclick-about', 'onclick-guests', 'onclick-sponsors', 'onclick-compaign', 'onclick-program'];
+const ids = ['onclick-open', 'onclick-close', 'onclick-events', 'onclick-about', 'onclick-sponsors', 'onclick-leadership', 'onclick-past-events', 'onclick-contact', 'onclick-compaign', 'onclick-program'];
 ids.forEach(addevent);

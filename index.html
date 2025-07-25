@@ -136,6 +136,11 @@
                     </a>
                 </li>
                 <li>
+                    <a href="#leadership-id">
+                        <h4>Leadership</h4>
+                    </a>
+                </li>
+                <li>
                     <a href="#past-events-id">
                         <h4>Past Events</h4>
                     </a>
@@ -183,6 +188,12 @@
                     <hr>
                 </li>
                 <li>
+                    <a href="#leadership-id" id="onclick-leadership">
+                        <h4>Leadership</h4>
+                    </a>
+                    <hr>
+                </li>
+                <li>
                     <a href="#past-events-id" id="onclick-past-events">
                         <h4>Past Events</h4>
                     </a>
@@ -213,34 +224,27 @@
                 font-weight: 700;
                 color: #7A0019;
                 margin-bottom: 30px;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
                 letter-spacing: 2px;
                 text-transform: uppercase;
                 animation: slideInDown 1.2s ease-out;
             ">AMIA 2025 NLP Working Group Pre-Symposium Workshop</h1>
             <h2 id="date" style="
                 font-size: clamp(1.5rem, 4vw, 2.5rem);
-                color: #ffffff;
+                color: #000000;
                 font-weight: 600;
                 margin: 20px 0;
                 text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
                 animation: fadeInUp 1.5s ease-out 0.3s both;
-            ">Nov 16, 2025</h2>
+            ">Nov 16, 2025, 8:30 AM – 12:00 PM</h2>
             <h2 id="location" style="
                 font-size: clamp(1.3rem, 3.5vw, 2rem);
-                color: #ffffff;
-                font-weight: 500;
-                margin: 15px 0;
-                text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+                color: #000000;
+                font-weight: 600;
+                margin: 20px 0;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
                 animation: fadeInUp 1.8s ease-out 0.6s both;
-            ">Atlanta, GA</h2>
-            <h2 id="time-location" style="
-                font-size: clamp(1.1rem, 3vw, 1.8rem);
-                color: #ffffff;
-                font-weight: 500;
-                margin: 15px 0;
-                text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-                animation: fadeInUp 2.1s ease-out 0.9s both;
-            ">8:30 AM – 12:00 PM | Room 14</h2>
+            ">Atlanta Marriott Marquis, Atlanta, GA</h2>
         </div>
         
         <style>
@@ -385,9 +389,47 @@ technologies, especially in health systems (and adjunct industries).</p>
         .break-row {
             background-color: #3ad43d;
         }
-        
-        /* Organization section styling */
-        .guests2 ul {
+
+        /* Organization Simple List Styling */
+        ul[data-columns="2"] {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        ul[data-columns="2"] li {
+            font-family: 'Lato', sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #2c3e50;
+            padding: 10px 0;
+            border-bottom: 1px solid #e8e9ea;
+        }
+
+        ul[data-columns="2"] br {
+            display: none;
+        }
+
+        /* Mobile responsive for simple organization list */
+        @media (max-width: 768px) {
+            ul[data-columns="2"] {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                max-width: 100%;
+            }
+            
+            ul[data-columns="2"] li {
+                font-size: 15px;
+                padding: 8px 0;
+            }
+        }
+
+        /* Leadership section styling - Same as original Organization */
+        #leadership-id ul {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -396,7 +438,7 @@ technologies, especially in health systems (and adjunct industries).</p>
             padding: 0;
         }
         
-        .guests2 li {
+        #leadership-id li {
             display: grid;
             grid-template-columns: 130px auto;
             gap: 5px;
@@ -414,7 +456,7 @@ technologies, especially in health systems (and adjunct industries).</p>
             word-break: break-word;
         }
         
-        .guests2 li::before {
+        #leadership-id li::before {
             content: '';
             position: absolute;
             top: 0;
@@ -427,21 +469,21 @@ technologies, especially in health systems (and adjunct industries).</p>
             z-index: 1;
         }
         
-        .guests2 li:hover {
+        #leadership-id li:hover {
             transform: translateY(-5px) scale(1.02);
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
         
-        .guests2 li:hover::before {
+        #leadership-id li:hover::before {
             opacity: 1;
         }
         
-        .guests2 li > * {
+        #leadership-id li > * {
             position: relative;
             z-index: 2;
         }
         
-        .guests2 button {
+        #leadership-id button {
             padding: 20px;
             margin: 30px 0 30px 0;
             width: 100%;
@@ -455,18 +497,18 @@ technologies, especially in health systems (and adjunct industries).</p>
             transition: all 0.3s ease;
         }
         
-        .guests2 button:hover {
+        #leadership-id button:hover {
             background-color: #eba134;
             color: white;
             border-color: #eba134;
         }
         
-        .guests2 button > img {
+        #leadership-id button > img {
             width: 10px;
             margin-left: 10px;
         }
         
-        .guest-image {
+        #leadership-id .guest-image {
             background-size: 40% 40%;
             background-repeat: no-repeat;
             background-position-x: 0;
@@ -479,7 +521,7 @@ technologies, especially in health systems (and adjunct industries).</p>
             justify-content: center;
         }
         
-        .guest-image img {
+        #leadership-id .guest-image img {
             max-width: 100%;
             height: auto;
             object-fit: contain;
@@ -487,12 +529,12 @@ technologies, especially in health systems (and adjunct industries).</p>
             border-radius: 8px;
         }
         
-        .guests2 li:hover .guest-image img {
+        #leadership-id li:hover .guest-image img {
             transform: scale(1.1);
             box-shadow: 0 4px 15px rgba(235,161,52,0.3);
         }
         
-        .guest-info {
+        #leadership-id .guest-info {
             padding: 10px 0 10px 15px;
             display: flex;
             flex-direction: column;
@@ -503,7 +545,7 @@ technologies, especially in health systems (and adjunct industries).</p>
             overflow-wrap: break-word;
         }
         
-        .guest-info hr {
+        #leadership-id .guest-info hr {
             border: none;
             border-top: 1px solid #d3d3d3;
             width: 30px;
@@ -511,12 +553,12 @@ technologies, especially in health systems (and adjunct industries).</p>
             transition: all 0.3s ease;
         }
         
-        .guests2 li:hover .guest-info hr {
+        #leadership-id li:hover .guest-info hr {
             border-top-color: #eba134;
             width: 50px;
         }
         
-        .guest-info h3 {
+        #leadership-id .guest-info h3 {
             font-weight: 900;
             transition: all 0.3s ease;
             font-size: 14px;
@@ -527,12 +569,12 @@ technologies, especially in health systems (and adjunct industries).</p>
             overflow-wrap: break-word;
         }
         
-        .guests2 li:hover .guest-info h3 {
+        #leadership-id li:hover .guest-info h3 {
             color: #eba134;
             transform: translateX(5px);
         }
         
-        .guest-info h4 {
+        #leadership-id .guest-info h4 {
             font-style: italic;
             color: #ec5242;
             font-size: 13px;
@@ -541,11 +583,11 @@ technologies, especially in health systems (and adjunct industries).</p>
             font-weight: 600;
         }
         
-        .guests2 li:hover .guest-info h4 {
+        #leadership-id li:hover .guest-info h4 {
             transform: translateX(3px);
         }
         
-        .guest-info p {
+        #leadership-id .guest-info p {
             font-size: 11px;
             line-height: 1.4;
             color: #666;
@@ -556,13 +598,13 @@ technologies, especially in health systems (and adjunct industries).</p>
             overflow-wrap: break-word;
         }
         
-        .guests2 li:hover .guest-info p {
+        #leadership-id li:hover .guest-info p {
             transform: translateX(2px);
         }
         
-        /* Desktop version - 3 columns layout */
+        /* Desktop version - 3 columns layout for Leadership */
         @media only screen and (min-width: 768px) {
-            .guests2 ul {
+            #leadership-id ul {
                 display: grid;
                 width: 95%;
                 max-width: 1400px;
@@ -572,33 +614,35 @@ technologies, especially in health systems (and adjunct industries).</p>
                 margin: 0 auto;
             }
             
-            .guests2 li {
+            #leadership-id li {
                 min-width: 400px;
                 max-width: 480px;
                 min-height: 240px;
                 grid-template-columns: 140px auto;
                 gap: 5px;
                 word-break: break-word;
-            }            .guests2 button {
+            }
+            
+            #leadership-id button {
                 width: 25%;
                 margin: 30px auto;
                 display: block;
             }
             
-            .guest-image {
+            #leadership-id .guest-image {
                 min-width: 140px;
                 width: 140px;
                 flex: 0 0 140px;
                 min-height: 180px;
             }
             
-            .guest-image img {
+            #leadership-id .guest-image img {
                 max-width: 100%;
                 height: auto;
                 object-fit: contain;
             }
             
-            .guest-info {
+            #leadership-id .guest-info {
                 min-height: 180px;
                 padding: 15px 0 15px 20px;
                 min-width: 280px;
@@ -606,36 +650,36 @@ technologies, especially in health systems (and adjunct industries).</p>
                 overflow-wrap: break-word;
             }
             
-            .guest-info h3 {
+            #leadership-id .guest-info h3 {
                 font-size: 15px;
                 margin-bottom: 8px;
             }
             
-            .guest-info h4 {
+            #leadership-id .guest-info h4 {
                 font-size: 13px;
                 margin-bottom: 10px;
             }
             
-            .guest-info p {
+            #leadership-id .guest-info p {
                 font-size: 12px;
                 line-height: 1.5;
             }
             
-            /* Enhanced hover effects for desktop */
-            .guests2 li:hover {
+            /* Enhanced hover effects for desktop Leadership */
+            #leadership-id li:hover {
                 transform: translateY(-8px) scale(1.03);
                 box-shadow: 0 15px 35px rgba(0,0,0,0.2);
             }
             
-            .guests2 li:hover .guest-info h3 {
+            #leadership-id li:hover .guest-info h3 {
                 transform: translateX(8px);
             }
             
-            .guests2 li:hover .guest-info h4 {
+            #leadership-id li:hover .guest-info h4 {
                 transform: translateX(6px);
             }
             
-            .guests2 li:hover .guest-info p {
+            #leadership-id li:hover .guest-info p {
                 transform: translateX(4px);
             }
         }
@@ -1118,13 +1162,31 @@ technologies, especially in health systems (and adjunct industries).</p>
     <hr> <!--  divider between Program and Organization sections -->
 
     <section class="guests2" id="committee-id">
-        <h2>Organization</h2>
+        <h2>Organization Commite</h2>
         <hr>
-        <ul id="guest-container"></ul>
-        <button type="button" id="more-button">
-            MORE
-            <img src="src/down-arrow.png" alt="Arrow">
-        </button>
+        <ul data-columns="2">
+            <li>• Rui Zhang (Chair), PhD, FACMI, FAMIA, FIAHSI, University of Minnesota, Minneapolis, MN</li>
+            <li>• Sunyang Fu (Vice Chair), PhD, MHI, University of Texas Health Science Center at Houston, TX</li>
+            <li>• Yanshan Wang (Past Chair), PhD, University of Pittsburgh, PA</li>
+            <li>• Sujani Kakumanu (Member-at-Large), MD, University of Wisconsin, Madison, WI</li>
+            <li>• Jiyeong Kim (Member-at-Large), PhD, Stanford University, CA</li>
+            <li>• Xinsong Du (Secretary), PhD, Harvard Medical School, Boston, MA</li>
+            <li>• Kirk Roberts, PhD, University of Texas Health Science Center at Houston, Houston, TX</li>
+            <li>• Hua Xu, PhD, Yale University, New Haven, CT </li>
+            <li>• Özlem Uzuner, PhD, FACMI, George Mason University, Fairfax, VA</li>
+            <li>• Meliha Yetişgen, PhD, University of Washington, Seattle, WA  </li>
+            <li>• Hongfang Liu, PhD, University of Texas Health Science Center at Houston, TX </li>
+            <li>• Stephane Meystre, MD, PhD, University of Applied Sciences and Arts of Southern Switzerland (SUPSI), Lugano, Switzerland </li>
+            <li>• Chunhua Weng, PhD, Columbia University, New York, NY </li>
+            <li>• Mesoud Rouhizadeh, PhD, University of Florida, Gainesville, FL</li>
+            <li>• Yifan Peng, PhD, Weill Cornell Medicine, New York City, NY</li>
+            <li>• Abeed Sarker, PhD, Emory University, Atlanta, GA</li>
+            <li>• Ramakanth Kavuluru, University of Kentucky, Lexington, KY</li>
+            <li>• Joseph M. Plasek, PhD, Mass General Brigham, Boston, MA</li><br>
+            <li>• Satya Sahoo, PhD, Case Western Reserve University, Cleveland, OH</li>
+            <li>• Steve Bedrick, PhD, Oregon Health & Science University, Portland, OR</li>
+            <li>• Dina Demner-Fushman, MD, PhD, National Library of Medicine, Bethesda, MD</li>
+        </ul>
     </section>
 
     <section class="events1" id="submissions-id">
@@ -1133,7 +1195,7 @@ technologies, especially in health systems (and adjunct industries).</p>
         <h3 style="text-align: left;">Important Dates</h3>
         <p>
             <ul>
-                <li>Submission Deadline: <span style="color: red; font-weight: bold;">August 28, 2025</span><br></li>
+                <li>Submission Deadline: <span style="color: red; font-weight: bold;">August 31, 2025</span><br></li>
                 <li>Notification of Acceptance: <span style="color: red; font-weight: bold;">September 12, 2025</span><br></li>
                 <li>Workshop: <span style="color: red; font-weight: bold;">November 16, 2025</span></li>
             </ul>
@@ -1191,6 +1253,16 @@ technologies, especially in health systems (and adjunct industries).</p>
         <h2>Sponsors</h2>
         <hr>
         <p>TBD</p>
+    </section>
+
+    <section class="guests2" id="leadership-id">
+        <h2>AMIA NLP Working Group Leadership</h2>
+        <hr>
+        <ul id="leadership-container"></ul>
+        <button type="button" id="leadership-more-button">
+            MORE
+            <img src="src/down-arrow.png" alt="Arrow">
+        </button>
     </section>
 
     <section class="guests" id="past-events-id">
