@@ -9,7 +9,7 @@ const guests = {
   guest2: {
     name: 'Sunyang Fu, PhD, MHI',
     occupation: 'Vice Chair',
-    description: 'Associate Professor, University of Texas Health Science Center at Houston, TX',
+    description: 'Assistant Professor, University of Texas Health Science Center at Houston, TX',
     picture: 'src/sunyang2.jpg',
     homepage: 'https://amia.org/membership/sunyang-fu-phd-mhi',
   },
